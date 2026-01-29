@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旬邑-千阳-略阳 周末自驾游攻略</title>
+    <!-- 替换为国内CDN以提高加载速度 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; }
+        h2 { color: #2980b9; margin-top: 30px; border-left: 5px solid #2980b9; padding-left: 10px; }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; } /* 最小宽度确保不挤压 */
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .map-box { height: 500px; width: 100%; background-color: #e0e0e0; margin-top: 20px; border-radius: 5px; border: 1px solid #999; z-index: 1; }
+        .info-card { background: #e8f6f3; padding: 15px; border-radius: 5px; margin-bottom: 15px; }
+        .tag { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 12px; color: #fff; white-space: nowrap; }
+        .tag-food { background-color: #e67e22; }
+        .tag-sight { background-color: #27ae60; }
+        .city-header { background-color: #d6eaf8; font-weight: bold; }
+        .tips { background: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba; }
+
+        /* 移动端适配样式 */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+            h1 { font-size: 1.4em; }
+            h2 { font-size: 1.2em; margin-top: 20px; }
+            .map-box { height: 300px; }
+            th, td { padding: 8px; font-size: 14px; }
+            .tips ul { padding-left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 旬邑-千阳-略阳 周末自驾游攻略</h1>
+        
+        <div class="info-card">
+            <p><strong>📅 时间：</strong> 2026.01.31 (周六) - 2026.02.01 (周日)</p>
+            <p><strong>🚗 车辆：</strong> 本田飞度 (手动挡)</p>
+            <p><strong>👥 人员：</strong> 2人</p>
+            <p><strong>🌦️ 天气：</strong> 
+                旬邑(-6~1℃)，千阳(-3~7℃)，略阳(0~11℃)。<br>
+                <span style="color:red; font-size:0.9em;">* 提示：山区早晚温差大，请注意保暖和防滑。</span>
+            </p>
+        </div>
+
+        <h2>🗺️ 行程路线规划</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>起止点</th>
+                        <th>距离/耗时</th>
+                        <th>路况/建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Day 1 上午</td>
+                        <td>旬邑县 → 千阳县</td>
+                        <td>158km / 2小时</td>
+                        <td>G69银百 -> G3511菏宝 -> G85银昆。路况较好，适合上午出发。</td>
+                    </tr>
+                    <tr>
+                        <td>Day 1 下午</td>
+                        <td>千阳县 → 略阳县</td>
+                        <td>290km / 3.5小时</td>
+                        <td>G85银昆 -> G7011十天。穿越秦岭，隧道多，注意车速。</td>
+                    </tr>
+                    <tr>
+                        <td>Day 2 下午</td>
+                        <td>略阳县 → 旬邑县</td>
+                        <td>400km / 5小时</td>
+                        <td>返程路途长，建议提前出发，中途在服务区休息。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>🍲 美食与景点推荐</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>城市</th>
+                        <th>名称</th>
+                        <th>类型</th>
+                        <th>地址/特色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 千阳县 -->
+                    <tr class="city-header"><td colspan="4">📍 千阳县 (推荐午餐/游玩)</td></tr>
+                    <tr>
+                        <td>千阳县</td>
+                        <td>王家大肉泡馍馆</td>
+                        <td><span class="tag tag-food">美食</span></td>
+                        <td>宝平路8号，地道风味，口碑较好</td>
+                    </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>老地方饭庄</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>宝平路民族花园一楼，家常菜</td>
+                </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>西府肖家大院</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>宝平路中段，正宗西府宴，环境不错</td>
+                </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>老曹家扯面</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>东大街32号，面食爱好者的选择</td>
+                </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>千湖国家湿地公园</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>亲水湾观鸟，景色宜人，适合散步拍照</td>
+                </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>千湖湿地朱鹮博物馆</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>千湖湿地内，观赏国宝朱鹮</td>
+                </tr>
+                <tr>
+                    <td>千阳县</td>
+                    <td>燕伋望鲁台</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>孔子弟子燕伋故里，尊师重教文化</td>
+                </tr>
+
+                <!-- 略阳县 -->
+                <tr class="city-header"><td colspan="4">📍 略阳县 (推荐晚餐/住宿/次日游玩)</td></tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>两河口罐罐鸡</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>象山西路，略阳必吃榜，汤鲜味美</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>黑河罐罐鸡</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>象山西路，另一家老字号，值得一试</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>略阳灰豆腐</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>县城内多处有售，独特的非遗美食</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>麻辣香苕粉面皮</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>张茶路，当地特色小吃，酸辣开胃</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>石果果青花椒鱼</td>
+                    <td><span class="tag tag-food">美食</span></td>
+                    <td>中学路，喜欢吃鱼的朋友不要错过</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>灵岩寺景区</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>陕南小碑林，摩崖石刻，依山傍水</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>江神庙</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>嘉陵南路，羌族文化特色建筑</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>略阳南山塔</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>灵岩路，登高可俯瞰略阳县城全景</td>
+                </tr>
+                <tr>
+                    <td>略阳县</td>
+                    <td>东门楼</td>
+                    <td><span class="tag tag-sight">景点</span></td>
+                    <td>南街，古城遗迹，夜景不错</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>📝 出行建议 & 装备</h2>
+        <div class="tips">
+            <ul>
+                <li><strong>衣物：</strong> 陕南略阳较暖和，但旬邑和千阳较冷，建议穿羽绒服，带一件稍薄的外套在略阳穿。</li>
+                <li><strong>车辆：</strong> 出发前务必检查<strong>刹车、轮胎、防冻液</strong>。</li>
+                <li><strong>驾驶：</strong> 尽量避免夜间在山区高速行车，视线不好且可能有暗冰。</li>
+                <li><strong>住宿：</strong> 略阳县城住宿选择较多，建议住在象山路或嘉陵广场附近，吃饭方便。</li>
+                <li><strong>大车：</strong> G85和G7011货车较多，超车时请果断，保持安全距离。</li>
+            </ul>
+        </div>
+
+        <div id="map" class="map-box"></div>
+        <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 5px;">* 注：地图展示为行程示意图，实际驾车请务必使用导航软件规划实时避堵路线。</p>
+    </div>
+
+    <script>
+        // 坐标定义 [纬度, 经度]
+        const xunyi = [35.11339, 108.33411];   // 旬邑县
+        const qianyang = [34.64229, 107.12803]; // 千阳县
+        const lueyang = [33.33166, 106.14961];  // 略阳县
+
+        // 初始化地图
+        var map = L.map('map').setView([34.2, 107.2], 8);
+
+        // 替换为高德地图瓦片源 (国内访问更快、更稳定)
+        L.tileLayer('https://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.amap.com/">高德地图</a>'
+        }).addTo(map);
+
+        // 自定义图标颜色 (可选，这里使用默认蓝色)
+        
+        // 添加标记
+        L.marker(xunyi).addTo(map)
+            .bindPopup("<b>旬邑县</b><br>🚩 起点/终点<br>1月31日出发")
+            .openPopup();
+
+        L.marker(qianyang).addTo(map)
+            .bindPopup("<b>千阳县</b><br>📍 第一站<br>午餐/湿地公园");
+
+        L.marker(lueyang).addTo(map)
+            .bindPopup("<b>略阳县</b><br>🏁 目的地<br>住宿/灵岩寺/美食");
+
+        // 绘制路线 (示意折线)
+        // 路线：旬邑 -> 千阳 -> 略阳
+        var routePoints = [xunyi, qianyang, lueyang];
+        
+        // 绘制蓝色折线表示去程
+        var polyline = L.polyline(routePoints, {
+            color: '#3498db',
+            weight: 5,
+            opacity: 0.8,
+            dashArray: '10, 10', // 虚线效果表示示意
+            lineCap: 'round'
+        }).addTo(map);
+
+        // 自动调整地图视野以适应路线
+        map.fitBounds(polyline.getBounds(), {padding: [50, 50]});
+    </script>
+</body>
+</html>
